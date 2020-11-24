@@ -32,7 +32,7 @@ Screen:
             id: md_raised_button
             text: "Generate"
             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-            on_release: app.create_password(text_field_input.text)
+            on_release: app.generate_password(int(text_field_input.text))
 
 
 

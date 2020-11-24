@@ -17,11 +17,7 @@ class MainApp(MDApp):
     def build(self):
         return Builder.load_file("pass_gen_kivy.kv")
 
-    def create_password(self, user_pass_length):
-        self.grab_char(int(user_pass_length))
-        # function chooses a char, appends it to a string a number of times specified by user. returns final password string
-
-    def grab_char(self, n):
+    def generate_password(self, n):
         ascii_for_pass = "".join(chr(c) for c in range(33, 127))
         pass_string = ""
         for i in range(0, n):
