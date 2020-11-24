@@ -1,0 +1,37 @@
+Screen:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        padding: "10dp"
+        adaptive_size: True
+
+        MDLabel:
+            text: "Password Generator"
+            id: title
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            halign: "center"
+
+        MDTextField:
+            hint_text: "How long is password?"
+            mode: "rectangle"
+            icon_right: "key-variant"
+            id: text_field_input
+            icon_right_color: app.theme_cls.primary_color
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            size_hint: (0.5, .25)
+
+
+        MDLabel:
+            id: password_output
+            text: ""
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            halign: "center"
+
+        MDRaisedButton:
+            id: md_raised_button
+            text: "Generate"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_release: app.place_text(text_field_input.text)
+
+
+
