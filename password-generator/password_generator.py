@@ -1,3 +1,4 @@
+
 from kivy.lang import Builder
 #from kivy.uix.textinput import Clipboard
 from kivymd.app import MDApp
@@ -28,6 +29,7 @@ class MainApp(MDApp):
 
     def place_text(self, text_from_input):
         self.root.ids.password_output.text = text_from_input
+
 
 if __name__ == "__main__":
     MainApp().run()
