@@ -1,0 +1,44 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+Screen:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        padding: "10dp"
+        adaptive_size: True
+
+        MDLabel:
+            text: "Password Generator"
+            id: title
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            halign: "center"
+
+        MDTextField:
+            id: text_field_input
+            spacing: dp(7)
+            hint_text: "How long is password?"
+            mode: "rectangle"
+            icon_right: "key-variant"
+            icon_right_color: app.theme_cls.primary_color
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            size_hint: (0.75, .28)
+            input_filter: "int"
+
+        MDLabel:
+            id: password_output
+            text: ""
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            halign: "center"
+
+        MDRaisedButton:
+            id: copy_password_button
+            text: "Copy"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_release:
+                Clipboard.copy(password_output.text)
+
+        MDRaisedButton:
+            id: generate_password_button
+            text: "Generate"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_release:
+                app.generate_password(text_field_input.text)
