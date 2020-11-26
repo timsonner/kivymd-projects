@@ -23,6 +23,9 @@ class MainApp(MDApp):
         pass_string = ""    #empty string
         while len(n.strip()) == 0:  #if MDtextfield is blank, return control
             return
+        while n == "0":
+            self.root.ids.password_output.text = pass_string
+            return
         n = int(n)  #must convert string to int
         for i in range(0, n):
             character = choice(ascii_for_pass)  #choose a character in range of ascii chars
