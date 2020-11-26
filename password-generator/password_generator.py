@@ -16,19 +16,21 @@ class MainApp(MDApp):
         super().__init__(**kwargs)
 
     def build(self):
-        return Builder.load_file("pass_gen_kivy.kv")
+        return Builder.load_file("pass_gen_kivy.kv")    #load this kivy file
 
     def generate_password(self, n):
-        ascii_for_pass = "".join(chr(c) for c in range(33, 127))
-        pass_string = ""
+        ascii_for_pass = "".join(chr(c) for c in range(33, 127))    #range of ascii for the choice function
+        pass_string = ""    #empty string
+        while len(n.strip()) == 0:  #if MDtextfield is blank, return control
+            return
+        while n == "0":
+            self.root.ids.password_output.text = "\r"
+            return
+        n = int(n)  #must convert string to int
         for i in range(0, n):
-            char = choice(ascii_for_pass)
-            pass_string += char
-        self.place_text(pass_string)
-
-
-    def place_text(self, text_from_input):
-        self.root.ids.password_output.text = text_from_input
+            character = choice(ascii_for_pass)  #choose a character in range of ascii chars
+            pass_string += character    #add char to string
+            self.root.ids.password_output.text = pass_string    #place text in MDlabel
 
 
 if __name__ == "__main__":
