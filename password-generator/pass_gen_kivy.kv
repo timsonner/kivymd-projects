@@ -17,12 +17,15 @@ Screen:
 
         MDTextField:
             id: text_field_input
-            spacing: dp(7)
-            hint_text: "How long is password?"
+            spacing: dp(8)
+            hint_text: "Length of new password         "
             mode: "rectangle"
             pos_hint: {'center_x': 0.5, 'center_y': .5}
-            size_hint: (0.75, .1)
+            size_hint: (0.8, .11)
             input_filter: "int"
+            required: True
+            helper_text_mode: "on_error"
+            helper_text: "Enter a number"
 
         MDLabel:
             id: password_output
